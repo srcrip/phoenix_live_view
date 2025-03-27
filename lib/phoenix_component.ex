@@ -3215,6 +3215,16 @@ defmodule Phoenix.Component do
   Note the `id` attribute cannot be overwritten, but you can create a label with a `for` attribute
   pointing to the UploadConfig `ref`.
 
+  ## Customizing Labels
+
+  The `ref` field on UploadConfig contains the id assigned to the file input:
+
+  ```heex
+  <label for={@uploads.avatar.ref}>
+    <.live_file_input upload={@uploads.avatar} />
+  </label
+  ```
+
   ## Drag and Drop
 
   Drag and drop is supported by annotating the droppable container with a `phx-drop-target`
@@ -3222,10 +3232,9 @@ defmodule Phoenix.Component do
   for drag and drop support:
 
   ```heex
-  <div class="container" phx-drop-target={@uploads.avatar.ref}>
-    <!-- ... -->
+  <label for={@uploads.avatar.ref} phx-drop-target={@uploads.avatar.ref}>
     <.live_file_input upload={@uploads.avatar} />
-  </div>
+  </label>
   ```
 
   ## Examples
